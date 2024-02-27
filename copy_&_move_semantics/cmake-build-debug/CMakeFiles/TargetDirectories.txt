@@ -1,0 +1,3 @@
+C:/Users/pawel/Documents/studia/6semestr/CPP/emcpp-assignments/copy_&_move_semantics/cmake-build-debug/CMakeFiles/copy___move_semantics.dir
+C:/Users/pawel/Documents/studia/6semestr/CPP/emcpp-assignments/copy_&_move_semantics/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/pawel/Documents/studia/6semestr/CPP/emcpp-assignments/copy_&_move_semantics/cmake-build-debug/CMakeFiles/rebuild_cache.dir
