@@ -42,10 +42,7 @@ Matrix::Matrix(const Matrix& other) : n_size(other.n_size), m_size(other.m_size)
 
 Matrix::Matrix(Matrix&& other) noexcept : Matrix()
 {
-    //swap(*this, other);
-    n_size = std::move(other.n_size);
-    m_size = std::move(other.m_size);
-    data = std::move(other.data);
+    swap(*this, other);
     std::cout << "move constructor" << std::endl;
 }
 
@@ -66,10 +63,8 @@ Matrix& Matrix::operator=(const Matrix& other)
 
 Matrix& Matrix::operator=(Matrix&& other) noexcept
 {
-    n_size = std::move(other.n_size);
-    m_size = std::move(other.m_size);
-    data = std::move(other.data);
-    std::cout << " move assignment operator" << std::endl;
+    swap(*this, other);
+    std::cout << "move assignment operator" << std::endl;
     return *this;
 }
 
@@ -82,10 +77,10 @@ double Matrix::operator()(const int a, const int b)
 
 Matrix Matrix::operator-() const
 {
-    Matrix tmp(*this);
+    Matrix tmp(static_cast<int>(n_size), static_cast<int>(m_size));
     for (size_t i=0; i < n_size; i++)
         for (size_t j=0; j < m_size; j++)
-            tmp.data[i * n_size + j] *= -1;
+            tmp.data[i * n_size + j] = -1 * data[i * n_size + j];
     return tmp;
 }
 

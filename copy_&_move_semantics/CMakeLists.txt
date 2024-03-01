@@ -4,4 +4,6 @@ project(copy___move_semantics)
 set(CMAKE_CXX_STANDARD 23)
 
 add_executable(copy___move_semantics main.cpp
-        Matrix.cpp)
+        Matrix.cpp
+        MatrixWithLabel.h
+        MatrixWithLabel.cpp)

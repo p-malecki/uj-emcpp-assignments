@@ -1,6 +1,7 @@
 #include <iostream>
 #include <algorithm>
 #include "Matrix.h"
+#include "MatrixWithLabel.h"
 using namespace std;
 
 int main(){
@@ -23,17 +24,17 @@ int main(){
     cout << "\nCopy elision \n";
     Matrix m6 = -m4;
     Matrix * pm = new Matrix(-m4);
-    delete pm;
     cout << m6(2,1) << endl; // 32
 
-    // cout << "\nInheritance \n";
-    // MatrixWithLabel l0("B", 3, 4);
-    // MatrixWithLabel l1({{1,2},{4,5}});
-    // l1.setLabel("A");
-    // MatrixWithLabel l2 = l1;
-    // MatrixWithLabel l3 = std::move(l1);
-    // cout << l2.getLabel() << " " << l3.getLabel() << endl;
-    // // 	cout << l1.getLabel() << endl;
+
+    cout << "\nInheritance \n";
+    MatrixWithLabel l0("B", 3, 4);
+    MatrixWithLabel l1({{1,2},{4,5}});
+    l1.setLabel("A");
+    MatrixWithLabel l2 = l1;
+    MatrixWithLabel l3 = std::move(l1);
+    cout << l2.getLabel() << " " << l3.getLabel() << endl;
+    //cout << l1.getLabel() << endl;
 
     return 0;
 }

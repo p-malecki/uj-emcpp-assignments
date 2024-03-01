@@ -3,9 +3,10 @@
 #include <ostream>
 
 
+
 class Matrix
 {
-private:
+protected:
     size_t n_size;
     size_t m_size;
     double* data;
@@ -26,4 +27,6 @@ public:
     friend std::ostream& operator<<(std::ostream& os, const Matrix& obj);
 };
 
-#endif
+
+
+#endif // MATRIX_H
