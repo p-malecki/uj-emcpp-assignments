@@ -12,9 +12,8 @@ public:
     MatrixWithLabel(std::string label, int n, int m);
     MatrixWithLabel(std::string label, std::initializer_list<std::initializer_list<double>> lst);
     MatrixWithLabel(const MatrixWithLabel& other);
-    MatrixWithLabel(MatrixWithLabel&& other) noexcept = default;
-
     MatrixWithLabel& operator=(const MatrixWithLabel& other);
+    MatrixWithLabel(MatrixWithLabel&& other) noexcept = default;
     MatrixWithLabel& operator=(MatrixWithLabel&& other) noexcept = default;
 
     void setLabel(const std::string& new_label);

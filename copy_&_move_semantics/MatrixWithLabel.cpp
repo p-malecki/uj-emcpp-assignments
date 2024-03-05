@@ -17,10 +17,10 @@ MatrixWithLabel::MatrixWithLabel(const MatrixWithLabel& other) : Matrix(other)
 
 MatrixWithLabel& MatrixWithLabel::operator=(const MatrixWithLabel& other)
 {
-    n_size = other.n_size;
-    m_size = other.m_size;
-    std::copy_n(other.data, n_size * m_size, data);
-    label = other.label;
+    if (this != &other) {
+        Matrix::operator=(other);
+        label = other.label;
+    }
     std::cout << "copy assignment operator (MatrixWithLabel)" << std::endl;
     return *this;
 }

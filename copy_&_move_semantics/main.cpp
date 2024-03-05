@@ -32,6 +32,7 @@ int main(){
     MatrixWithLabel l1({{1,2},{4,5}});
     l1.setLabel("A");
     MatrixWithLabel l2 = l1;
+    l2 = l0;
     MatrixWithLabel l3 = std::move(l1);
     cout << l2.getLabel() << " " << l3.getLabel() << endl;
     //cout << l1.getLabel() << endl;

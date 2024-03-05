@@ -40,32 +40,35 @@ Matrix::Matrix(const Matrix& other) : n_size(other.n_size), m_size(other.m_size)
     std::cout << "copy constructor" << std::endl;
 }
 
+Matrix& Matrix::operator=(Matrix&& other) noexcept {
+    if (this != &other) {
+        swap(*this, other);
+    }
+    std::cout << "move assignment operator" << std::endl;
+    return *this;
+}
+
 Matrix::Matrix(Matrix&& other) noexcept : Matrix()
 {
     swap(*this, other);
     std::cout << "move constructor" << std::endl;
 }
 
-Matrix::~Matrix()
-{
-    delete data;
-    std::cout << "memory delocated" << std::endl;
-}
-
 Matrix& Matrix::operator=(const Matrix& other)
 {
-    n_size = other.n_size;
-    m_size = other.m_size;
-    std::copy_n(other.data, n_size * m_size, data);
+    if (this != &other) {
+        n_size = other.n_size;
+        m_size = other.m_size;
+        std::copy_n(other.data, n_size * m_size, data);
+    }
     std::cout << "copy assignment operator" << std::endl;
     return *this;
 }
 
-Matrix& Matrix::operator=(Matrix&& other) noexcept
+Matrix::~Matrix()
 {
-    swap(*this, other);
-    std::cout << "move assignment operator" << std::endl;
-    return *this;
+    delete data;
+    std::cout << "memory delocated" << std::endl;
 }
 
 double Matrix::operator()(const int a, const int b)
