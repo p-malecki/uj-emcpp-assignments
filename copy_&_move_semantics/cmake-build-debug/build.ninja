@@ -57,6 +57,22 @@ build CMakeFiles/copy___move_semantics.dir/main.cpp.obj: CXX_COMPILER__copy___mo
   TARGET_COMPILE_PDB = CMakeFiles\copy___move_semantics.dir\
   TARGET_PDB = copy___move_semantics.pdb
 
+build CMakeFiles/copy___move_semantics.dir/Matrix.cpp.obj: CXX_COMPILER__copy___move_semantics_unscanned_Debug C$:/Users/pawel/Documents/studia/6semestr/CPP/emcpp-assignments/copy_&_move_semantics/Matrix.cpp || cmake_object_order_depends_target_copy___move_semantics
+  DEP_FILE = CMakeFiles\copy___move_semantics.dir\Matrix.cpp.obj.d
+  FLAGS = -g -std=gnu++2a -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\copy___move_semantics.dir
+  OBJECT_FILE_DIR = CMakeFiles\copy___move_semantics.dir
+  TARGET_COMPILE_PDB = CMakeFiles\copy___move_semantics.dir\
+  TARGET_PDB = copy___move_semantics.pdb
+
+build CMakeFiles/copy___move_semantics.dir/MatrixWithLabel.cpp.obj: CXX_COMPILER__copy___move_semantics_unscanned_Debug C$:/Users/pawel/Documents/studia/6semestr/CPP/emcpp-assignments/copy_&_move_semantics/MatrixWithLabel.cpp || cmake_object_order_depends_target_copy___move_semantics
+  DEP_FILE = CMakeFiles\copy___move_semantics.dir\MatrixWithLabel.cpp.obj.d
+  FLAGS = -g -std=gnu++2a -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\copy___move_semantics.dir
+  OBJECT_FILE_DIR = CMakeFiles\copy___move_semantics.dir
+  TARGET_COMPILE_PDB = CMakeFiles\copy___move_semantics.dir\
+  TARGET_PDB = copy___move_semantics.pdb
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target copy___move_semantics
@@ -65,7 +81,7 @@ build CMakeFiles/copy___move_semantics.dir/main.cpp.obj: CXX_COMPILER__copy___mo
 #############################################
 # Link the executable copy___move_semantics.exe
 
-build copy___move_semantics.exe: CXX_EXECUTABLE_LINKER__copy___move_semantics_Debug CMakeFiles/copy___move_semantics.dir/main.cpp.obj
+build copy___move_semantics.exe: CXX_EXECUTABLE_LINKER__copy___move_semantics_Debug CMakeFiles/copy___move_semantics.dir/main.cpp.obj CMakeFiles/copy___move_semantics.dir/Matrix.cpp.obj CMakeFiles/copy___move_semantics.dir/MatrixWithLabel.cpp.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\copy___move_semantics.dir

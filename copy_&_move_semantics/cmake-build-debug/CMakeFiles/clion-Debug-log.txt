@@ -11,6 +11,6 @@
 -- Check for working CXX compiler: C:/Program Files/MinGW/bin/g++.exe - skipped
 -- Detecting CXX compile features
 -- Detecting CXX compile features - done
--- Configuring done (3.7s)
--- Generating done (0.0s)
+-- Configuring done (10.0s)
+-- Generating done (0.1s)
 -- Build files have been written to: C:/Users/pawel/Documents/studia/6semestr/CPP/emcpp-assignments/copy_&_move_semantics/cmake-build-debug
