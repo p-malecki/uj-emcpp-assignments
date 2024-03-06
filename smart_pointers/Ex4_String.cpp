@@ -11,7 +11,7 @@ int main(){
     String d = a+b;       // no copy (d points to string in a)
     a.set(0,'l');           // Copy constructor
     a.set(1,'l');           // no copy
-    d = c+a;              // Constructing new string
+    d = c + a;              // Constructing new string
     cout << c << " "<< d << endl; // hi hill  (no copy)
     cout << c.get(0) << endl;         // h        (no copy)
     return 0;
