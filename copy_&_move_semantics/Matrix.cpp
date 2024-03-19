@@ -67,7 +67,7 @@ Matrix& Matrix::operator=(const Matrix& other)
 
 Matrix::~Matrix()
 {
-    delete data;
+    delete[] data;
     std::cout << "memory delocated" << std::endl;
 }
 
