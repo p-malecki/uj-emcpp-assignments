@@ -17,7 +17,7 @@ double function(int n, double y, double z, F f, G g){
 	return (f(n,y) > z) ? g(z, y) : g(y, z);
 }
 
-int main1(){
+int main(){
 
 	typedef double (*FunPtr1)(int, double);
 	typedef double (*FunPtr2)(double, double);

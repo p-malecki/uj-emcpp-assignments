@@ -17,7 +17,7 @@ void print(const std::vector<int> & v, const std::string & label = ""){
   cout << endl;
 }
 
-int main2(){
+int main(){
   std::vector<int> v = {256, 64, 16*3, 16*9, 16, 8*7, -9, -3, 1, 6, -2, 5, 9, 0};
   print(v, "original:");
 
@@ -92,7 +92,7 @@ int main2(){
 
   auto l1_norm = [](auto container)
   {
-    auto acc_abs = [](auto a, auto b){ return abs(a) + abs(b); };
+    auto acc_abs = [](auto a, auto b){ return a + abs(b); };
     return accumulate(container.begin(), container.end(), 0, acc_abs);
   };  // [ 5 ]
 
