@@ -25,10 +25,10 @@ int main(){
     LOG(m2.size());
 
 	DWector m3 = m1 + m2;        // vector sum
-    LOG(m3);
+	LOG(m3);
 
     Vector<double, 3> m4{5.0, 6.2, 1.34};
-	// auto mm = m3 + m4; // compilation ERROR
+	//auto mm = m3 + m4; // compilation ERROR
 
 	return 0;
 }
