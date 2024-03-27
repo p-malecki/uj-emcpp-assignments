@@ -1,5 +1,5 @@
-#ifndef STATIC_VECTOR_H
-#define STATIC_VECTOR_H
+#ifndef DYNAMIC_VECTOR_H
+#define DYNAMIC_VECTOR_H
 
 
 #include <memory>
@@ -56,25 +56,11 @@ public:
 
     template <typename S, size_t M>
     explicit Vector(const Vector<S, M>& other) : currentSize(M) {
-        data = std::make_unique<T[]>(currentSize);
-        for (size_type i=0; i < currentSize; i++) {
-            data[i] = static_cast<T>(other[i]);
+        std::unique_ptr<T[]> tmp = std::make_unique<T[]>(currentSize);
+        for (size_t i = 0; i < currentSize; i++) {
+            tmp[i] = static_cast<T>(other[i]);
         }
-    }
-
-    template<size_t N>
-    explicit Vector(const Vector<T, N>& other) : currentSize(N) {
-        data = std::make_unique<T[]>(currentSize);
-        std::copy(other.data.get(), other.data.get() + currentSize, data.get());
-    }
-
-    friend Vector operator+ (const Vector& u, const Vector& v ) {
-        if (u.size() != v.size())
-            throw VectorException("incompatible sizes in Vector::operator+");
-        Vector result(u);
-        for(int i=0; i < u.size(); i++)
-            result[i] = u[i] + v[i];
-        return result;
+        data = std::move(tmp);
     }
 
     constexpr size_type size() const {
@@ -118,7 +104,19 @@ public:
         }
         return out;
     }
+
+    template <size_t N>
+    friend Vector<T, N> operator+ (const Vector<T, 0>& u, const Vector<T, N>& v) {
+        Vector<T, N> result(u);
+        if (N == 0 && u.size() != v.size())
+            throw VectorException("incompatible sizes in Vector::operator+");
+
+        for(int i=0; i < v.size(); i++)
+            result[i] = u[i] + v[i];
+
+        return result;
+    }
 };
 
 
-#endif //STATIC_VECTOR_H
+#endif //DYNAMIC_VECTOR_H

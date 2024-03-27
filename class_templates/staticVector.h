@@ -41,14 +41,10 @@ public:
 
     template <typename S, size_t M>
     explicit Vector(const Vector<S, M>& other) {
-        size_type copySize = std::min(N, M);
+        size_type copySize = std::min(N, other.size());
         for (size_type i=0; i < copySize; i++) {
             data[i] = static_cast<T>(other[i]);
         }
-    }
-
-    explicit Vector(const Vector<T, 0>& other) {
-        std::copy_n(other.data.get(), N, data);
         std::fill_n(data + other.size(), N - other.size(), 0);
     }
 
@@ -71,6 +67,12 @@ public:
         return data[index];
     }
 
+    friend std::ostream& operator<<(std::ostream& out, const Vector& v) {
+        for(auto elem: v.data)
+            out << elem << " ";
+        return out;
+    }
+
     friend Vector operator+ (const Vector& u, const Vector& v ) {
         Vector t(u);
         for(int i=0; i < u.size(); i++)
@@ -78,10 +80,11 @@ public:
         return t;
     }
 
-    friend std::ostream& operator<<(std::ostream& out, const Vector& v) {
-        for(auto elem: v.data)
-            out << elem << " ";
-        return out;
+    friend Vector<T, N> operator+ (const Vector<T, N>& u, const Vector<T, 0>& v) {
+        Vector<T, N> result(v);
+        for(int i=0; i < v.size(); i++)
+            result[i] = u[i] + v[i];
+        return result;
     }
 
 };
