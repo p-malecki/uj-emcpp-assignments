@@ -37,9 +37,7 @@ public:
 
     Vector(const Vector& v): currentSize(v.size()) {
         data = std::make_unique<T[]>(currentSize);
-        for (size_t i = 0; i < currentSize; i++) {
-            data[i] = v.data[i];
-        }
+        std::copy(v.data.get(), v.data.get(), data.get());
     }
 
     Vector(const std::initializer_list<T>& list) : currentSize(list.size()) {
@@ -80,9 +78,7 @@ public:
 
         std::unique_ptr<T[]> tmp = std::make_unique<T[]>(newSize);
         size_t copySize = std::min(currentSize, newSize);
-        for (size_t i = 0; i < copySize; i++) {
-            tmp[i] = data[i];
-        }
+        std::copy_n(data.get(), copySize, tmp.get());
         std::fill_n(tmp.get() + copySize, newSize - copySize, 0);
         data = std::move(tmp);
         currentSize = newSize;

@@ -2,6 +2,8 @@
 #include <iostream>
 #include <iomanip>
 #include "staticVector.h"
+#include "dynamicVector.h"
+
 
 using namespace std;
 #define LOG(x) std::cout << #x << " = " << (x) << std::endl
