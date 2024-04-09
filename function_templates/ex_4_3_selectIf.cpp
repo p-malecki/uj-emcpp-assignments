@@ -5,7 +5,7 @@
 using namespace std;
 
 bool biggerThan5(int x){ return x>5; }
-/// TODO
+
 template <
 	template<typename, typename> class OutContainer,
 	typename T, typename Alloc,

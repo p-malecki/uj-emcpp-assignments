@@ -18,10 +18,13 @@ string sqr(string x) {
 
 template <int T>  // B
 int mod(int a, int b) {
-    if (T == 0) return a + b;
     return (a + b) % T;
 }
 
+template <>
+int mod<0>(int a, int b) {
+    return (a + b) % T;
+}
 
 template <typename T, typename Alloc, template<typename, typename> class Container>  // C
 void print(const Container<T, Alloc >& container) {
