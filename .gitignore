@@ -149,3 +149,16 @@ fabric.properties
 .idea/**/azureSettings.xml
 
 # End of https://www.toptal.com/developers/gitignore/api/c++,clion
+class_templates/.DS_Store
+.DS_Store
+class_templates/.idea/class_templates.iml
+/class_templates/.idea
+/function_templates/.idea
+/functional_objects/.idea
+/variadic_templates/.idea
+/variadic_templates/.idea
+/variadic_templates/.idea
+/variadic_templates/.idea
+variadic_templates/.idea/vcs.xml
+/variadic_templates/.idea
+variadic_templates/.idea/modules.xml

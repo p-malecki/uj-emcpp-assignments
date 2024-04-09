@@ -10,6 +10,13 @@ int cube(int x){
   return x*x*x;
 }
 
+template<class... Ts>
+auto average(Ts... args) {
+    return (0.0 + ... + args);
+}
+
+
+
 int main(){
 
     cout << average(1, 2) << endl;                    // 1.5
