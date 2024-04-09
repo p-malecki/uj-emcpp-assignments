@@ -9,6 +9,32 @@ double f(int x, double y, const int & z, int & w){
 	return (x*y - z*w);
 }
 
+template <typename... Ts>
+void showNames(Ts&&... args) {
+    int i = 1;
+    ((cout << i++ << " > " << boost::typeindex::type_id_with_cvr<Ts>().pretty_name() << " [" << typeid(Ts).name() << "] = " << args << endl), ...);
+}
+
+template <typename F>
+class Proxy {
+    const F function;
+public:
+    explicit Proxy(F func) : function(func) {}
+
+    template <typename... Ts>
+    auto operator()(Ts&&... args) const {
+        showNames(args...);
+        return function(std::forward<Ts>(args)...);
+    }
+};
+
+
+template <typename F>
+Proxy<F> make_proxy(F&& func) {
+    return Proxy<F>(std::forward<F>(func));
+}
+
+
 int main(){
     int x = 4;
     const int y = 8;
@@ -23,7 +49,7 @@ int main(){
     cout << "result2 = " << result2 << endl;
     auto result3 = p(3, 3, 5, x);
     cout << "result3 = " << result3 << endl;
-    
+
     auto g = make_proxy([](int &&x, int & y){ y = x; return y; }) ;
  //   auto g = Proxy([](int &&x, int & y){ y = x; return y; }) ; // with C++ 17
     cout << g(5, x) << endl;

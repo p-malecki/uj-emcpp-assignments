@@ -10,11 +10,21 @@ int cube(int x){
   return x*x*x;
 }
 
-template<class... Ts>
-auto average(Ts... args) {
-    return (0.0 + ... + args);
+
+template<typename... Ts>
+constexpr double average(Ts&&... args) {
+    return (0.0 + ... + args) / sizeof...(Ts);
 }
 
+template<typename F, typename... Ts>
+constexpr auto computeSum(F&& func, Ts&&... args) {
+    return (func(args) + ...);
+}
+
+template<typename Container, typename... Ts>
+constexpr void insert(Container& tab, Ts... args) {
+    (tab.push_back(args), ...);
+}
 
 
 int main(){

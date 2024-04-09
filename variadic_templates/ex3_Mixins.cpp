@@ -2,6 +2,14 @@
 #include <vector>
 using namespace std;
 
+
+template<class... Ts>
+class Mixins : public Ts... {
+public:
+    Mixins(const Ts&... mixins) : Ts(mixins)... { }
+};
+
+
 /* Colors */
 class Red{
 public:     static constexpr char color[] = "red";
@@ -30,6 +38,7 @@ public:
     Rectangle(double a, double b) : a(a), b(b) {}
     double area(){ return a * b;}
 };
+
 /* Other Features */
 class Note{
     std::vector<std::string> notes;
@@ -49,7 +58,7 @@ int main(){
     cout << x.color << " area = " << x.area() << endl;
 
     using BlueRectangleWithNotes = Mixins<Blue, Rectangle, Note>;
-    RedCicleWithNotes y (Blue{}, Rectangle{3,4}, Note{"Hey"});
+    BlueRectangleWithNotes y (Blue{}, Rectangle{3,4}, Note{"Hey"});
     y.add("Ho");
     cout << y.color << " area = " << y.area() << endl;
 
