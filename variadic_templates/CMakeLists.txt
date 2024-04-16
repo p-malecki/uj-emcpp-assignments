@@ -7,9 +7,11 @@ include_directories(${Boost_INCLUDE_DIRS})
 
 
 add_executable(ex1_variadicFunctions ex1_variadicFunctions.cpp)
-add_executable(ex2_proxy ex2_proxy.cpp)
+add_executable(ex2_proxy ex2_proxy.cpp
+        Proxy.h)
 add_executable(ex3_Mixins ex3_Mixins.cpp)
-add_executable(ex4_MultiVector ex4_MultiVector.cpp)
+add_executable(ex4_MultiVector ex4_MultiVector.cpp
+        MultiVector.h)
 
 
 target_link_libraries(ex2_proxy ${Boost_LIBRARIES})

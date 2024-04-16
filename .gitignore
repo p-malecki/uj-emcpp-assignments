@@ -162,3 +162,5 @@ class_templates/.idea/class_templates.iml
 variadic_templates/.idea/vcs.xml
 /variadic_templates/.idea
 variadic_templates/.idea/modules.xml
+traits_and_policies/.idea/misc.xml
+/traits_and_policies/.idea
