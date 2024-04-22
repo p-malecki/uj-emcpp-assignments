@@ -19,6 +19,7 @@ class Vector{
 	std::copy(m.data, m.data+N, data);
 	cout << " Copy constr" << endl;
   }
+
   int operator[](int index) const {
 	return data[index];
   }
@@ -34,12 +35,78 @@ class Vector{
   }
 };
 
-struct AddNode
+template <typename L, typename R>
+struct AddNode {
+    L left;
+    R right;
+
+    auto operator[] (int i) const {
+        return left[i] + right[i];
+    }
+
+    template<int T>
+    operator Vector<T>() const {
+        Vector<T> result;
+        for (auto i=0; i < T; i++) {
+            result[i] = this[i];
+        }
+        return result;
+    }
+};
+
+template <typename L, typename R>
+struct MinusNode {
+    L left;
+    R right;
+
+    decltype(auto) operator[] (int i) const {
+        return left[i] - right[i];
+    }
+
+    template<int T>
+    operator Vector<T>() const {
+        Vector<T> result;
+        for (auto i=0; i < T; i++) {
+            result[i] = left[i] - right[i]; //this[i];
+        }
+        return result;
+    }
+};
+
+template <typename R>
+struct MultiplyNode {
+    int left;
+    R right;
+
+    auto operator[] (int i) const {
+        return left * right[i];
+    }
+
+    template<int T>
+    operator Vector<T>() const {
+        Vector<T> result;
+        for (auto i=0; i < T; i++)
+            result[i] = this[i];
+        return result;
+    }
+};
 
 template<typename L, typename R>
 AddNode<L, R> operator+(L && l, R && r) {
-    return {l, r}
+    return {l, r};
 }
+
+template<typename L, typename R>
+MinusNode<L, R> operator-(L && l, R && r) {
+    return {l, r};
+}
+
+template<typename R>
+MultiplyNode<R> operator*(int l, R && r) {
+    return {l, r};
+}
+
+
 
 int main(){
   using V = Vector<10>;
@@ -67,13 +134,4 @@ Lazy operations :
  Default constr
 12, 12, 6, 15, 9, 6, 9, 12, 6, 3,
 e = 11
- */
-
-
-
-/*
- * addNode, operator+ adds new node to tree
- * operator[i] = L[i] + R[i]
- * operator+ &&, forward
- * conversion form addNode to Vector
  */
