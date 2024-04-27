@@ -2,6 +2,7 @@
 #include <algorithm>
 #include <iomanip>
 #include <vector>
+#include <numeric>
 #include "Matrix.h"
 using namespace std;
 

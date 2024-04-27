@@ -55,7 +55,145 @@ class Matrix{
 		return r;
 	}
 
+
+    class iterator {
+    protected:
+        Matrix<T, N, M>* matrix;
+        size_t current_row;
+        size_t current_col;
+    public:
+        explicit iterator(Matrix<T, N, M>* matrix, size_t row=1, size_t col=1) : matrix(matrix), current_row(row), current_col(col) {}
+
+        virtual T& operator*() const {
+            return matrix->operator()(current_row, current_col);\
+        }
+
+        virtual T* operator->() const {
+            return &matrix->operator()(current_row, current_col);
+        }
+
+        iterator& operator++() {
+            if (current_col < M)
+                current_col++;
+            else {
+                current_row++;
+                current_col = 1;
+            }
+            return *this;
+        }
+
+        iterator operator++(int) {
+            auto tmp = *this;
+            ++(*this);
+            return tmp;
+        }
+
+        friend bool operator==(const iterator& left, const iterator& right) {
+            return  left.matrix == right.matrix &&
+                    left.current_row == right.current_row &&
+                    left.current_col == right.current_col;
+        }
+
+        friend bool operator!=(const iterator& left, const iterator& right) {
+            return !(left == right);
+        }
+    };
+
+    class const_iterator : public iterator{
+    public:
+        explicit const_iterator(const Matrix<T, N, M>* matrix, size_t row=1, size_t col=1) : iterator(const_cast<Matrix<T, N, M>*>(matrix), row, col) {}
+
+        const T& operator*() const override {
+            return this->matrix->operator()(this->current_row, this->current_col);\
+        }
+
+        const T* operator->() const override {
+            return &this->matrix->operator()(this->current_row, this->current_col);
+        }
+
+        const_iterator& operator++() {
+            if (this->current_col < M)
+                this->current_col++;
+            else {
+                this->current_row++;
+                this->current_col = 1;
+            }
+            return *this;
+        }
+
+        const_iterator operator++(int) {
+            auto temp = *this;
+            this->operator++();
+            return temp;
+        }
+    };
+
+    class row_iterator : public iterator {
+    public:
+        explicit row_iterator(const Matrix<T, N, M>* matrix, size_t row=1, size_t col=1) : iterator(const_cast<Matrix<T, N, M>*>(matrix), row, col) {}
+
+        row_iterator& operator++() {
+            this->current_col++;
+            return *this;
+        }
+
+        row_iterator operator++(int) {
+            auto temp = row_iterator(this->matrix, this->current_row, this->current_col);//*this;
+            this->operator++();
+            return temp;
+        }
+    };
+
+    class col_iterator : public iterator {
+    public:
+        explicit col_iterator(const Matrix<T, N, M>* matrix, size_t row=1, size_t col=1) : iterator(const_cast<Matrix<T, N, M>*>(matrix), row, col) {}
+
+        col_iterator& operator++() {
+            this->current_row++;
+            return *this;
+        }
+
+        col_iterator operator++(int) {
+            auto temp = *this;
+            this->operator++();
+            return temp;
+        }
+    };
+
+
+    Matrix<T, N, M>::iterator begin()  {
+        return iterator(this);
+    }
+
+    Matrix<T, N, M>::iterator end() {
+        return iterator(this, N + 1, 1);
+    }
+
+    Matrix<T, N, M>::const_iterator begin() const {
+        return const_iterator(this);
+    }
+
+    Matrix<T, N, M>::const_iterator end() const {
+        return const_iterator(this, N + 1, 1);
+    }
+
+    Matrix<T, N, M>::row_iterator row_begin(int row) {
+        return row_iterator(this, row, 1);
+    }
+
+    Matrix<T, N, M>::row_iterator row_end(int row) {
+        return row_iterator(this, row, M + 1);
+    }
+
+    Matrix<T, N, M>::col_iterator col_begin(int col) {
+        return col_iterator(this, 1, col);
+    }
+
+    Matrix<T, N, M>::col_iterator col_end(int col) {
+        return col_iterator(this, N + 1, col);
+    }
 };
+
 
 template <typename T, size_t N, size_t M>
 void printMatrix(const Matrix<T,N,M> & m, int width = 10) noexcept {

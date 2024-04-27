@@ -34,9 +34,9 @@ public:
             return tmp;
         }
 
-        T operator->() {
-            return current;
-        }
+//        T operator->() const {
+//            return current;
+//        }
 
         bool operator==(const Iterator& other) const {
             return current == other.current || (stop == other.stop && current >= stop && other.current >= other.stop);
