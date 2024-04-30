@@ -8,9 +8,6 @@ class Range{
     T start;
     T stop;
     T step;
-public:
-    explicit Range(T stop) : start(0), stop(stop), step(1) {}
-    Range(T start, T stop, T step=1) : start(start), stop(stop), step(step) {}
 
     class Iterator {
         T current;
@@ -47,6 +44,10 @@ public:
         }
 
     };
+
+public:
+    explicit Range(T stop) : start(0), stop(stop), step(1) {}
+    Range(T start, T stop, T step=1) : start(start), stop(stop), step(step) {}
 
     Range<T>::Iterator begin() const {
         return Iterator(start, stop, step);
