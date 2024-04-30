@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="CMakePresetLoader">{
+  &quot;useNewFormat&quot;: true
+}</component>
+  <component name="CMakeReloadState">
+    <option name="reloaded" value="true" />
+  </component>
+  <component name="CMakeRunConfigurationManager">
+    <generated>
+      <config projectName="lab8" targetName="ex4_operators" />
+      <config projectName="lab8" targetName="ex1_type_traits" />
+      <config projectName="lab8" targetName="ex2_traits" />
+      <config projectName="lab8" targetName="ex3_policies" />
+    </generated>
+  </component>
+  <component name="CMakeSettings">
+    <configurations>
+      <configuration PROFILE_NAME="Debug" ENABLED="true" CONFIG_NAME="Debug" />
+    </configurations>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="6e895ae8-8f74-4dd8-b011-42e87464d151" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../iterators/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../iterators/.idea/iterators.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../iterators/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../iterators/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../iterators/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Vector.h" beforeDir="false" afterPath="$PROJECT_DIR$/Vector.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VectorPolicy.h" beforeDir="false" afterPath="$PROJECT_DIR$/VectorPolicy.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ex_8_4_Vector_operators.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/ex_8_4_Vector_operators.cpp" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ClangdSettings">
+    <option name="formatViaClangd" value="false" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectApplicationVersion">
+    <option name="ide" value="CLion" />
+    <option name="majorVersion" value="2024" />
+    <option name="minorVersion" value="1" />
+    <option name="productBranch" value="Classic" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 2
+}</component>
+  <component name="ProjectId" id="2fB1otbNelGR40WdFo9Fw2qV3Ng" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;CMake Application.ex1_type_traits.executor&quot;: &quot;Run&quot;,
+    &quot;CMake Application.ex2_traits.executor&quot;: &quot;Run&quot;,
+    &quot;CMake Application.ex3_policies.executor&quot;: &quot;Run&quot;,
+    &quot;CMake Application.ex4_operators.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.readMode.enableVisualFormatting&quot;: &quot;true&quot;,
+    &quot;cf.first.check.clang-format&quot;: &quot;false&quot;,
+    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;structure.view.defaults.are.configured&quot;: &quot;true&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RunManager" selected="CMake Application.ex1_type_traits">
+    <configuration name="ex1_type_traits" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="lab8" TARGET_NAME="ex1_type_traits" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="lab8" RUN_TARGET_NAME="ex1_type_traits">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ex2_traits" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="lab8" TARGET_NAME="ex2_traits" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="lab8" RUN_TARGET_NAME="ex2_traits">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ex3_policies" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="lab8" TARGET_NAME="ex3_policies" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="lab8" RUN_TARGET_NAME="ex3_policies">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ex4_operators" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="lab8" TARGET_NAME="ex4_operators" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="lab8" RUN_TARGET_NAME="ex4_operators">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="CMake Application.ex1_type_traits" />
+      <item itemvalue="CMake Application.ex2_traits" />
+      <item itemvalue="CMake Application.ex3_policies" />
+      <item itemvalue="CMake Application.ex4_operators" />
+    </list>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="6e895ae8-8f74-4dd8-b011-42e87464d151" name="Changes" comment="" />
+      <created>1713259834627</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1713259834627</updated>
+      <workItem from="1713259835620" duration="1189000" />
+      <workItem from="1713261865589" duration="29369000" />
+      <workItem from="1713803623010" duration="504000" />
+      <workItem from="1713804294990" duration="98000" />
+      <workItem from="1713865009886" duration="3365000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VCPKGProject">
+    <isAutomaticCheckingOnLaunch value="false" />
+    <isAutomaticFoundErrors value="true" />
+    <isAutomaticReloadCMake value="true" />
+  </component>
+</project>
