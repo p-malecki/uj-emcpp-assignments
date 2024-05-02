@@ -1,33 +1,52 @@
 #include <iostream>
+#include <fstream>
+#include <filesystem>
+#include <map>
 #include <vector>
+#include "toLowerAlpha.h"
 using namespace std;
 
 /**
  * Removes all non alphanumeric characters from given word and converts to lower case.
  * @param[in,out] word on return word consist only of lower case characters.
  */
-void toLowerAlpha(std::string & s1) ;
+//void toLowerAlpha(std::string & s1);
+
 
 int main(){
     int count = 0;
     std::string word;
     map<string, int> c;
     std::vector<int> v;
-    while( cin >> word) {
+
+    std::filesystem::path filePath = std::filesystem::current_path() / ".." / "hamletEN.txt";
+    std::ifstream in(filePath);
+    std::cin.rdbuf(in.rdbuf());
+
+    while(cin >> word) {
        toLowerAlpha(word);
-
-       if(word != ""){
+       if(!word.empty()){
+           if (c[word] == 0) {
+               count++;
+           }
            c[word]++;
-           count++;
        }
-
     }
-    // ...
+
     multimap<int, string> m2;
+    for (const auto& p : c) {
+        m2.insert({p.second, p.first});
+    }
+
 
     cout << "Number of distinct words : " << count << endl;
     cout << "\nThe top 20 most popular words: \n";
-    // ...
+
+    auto it = rbegin(m2);
+    for (int i = 0; i < 20 && it != m2.rend(); ++i, ++it) {
+        std::cout << it->second << " : " << it->first << std::endl;
+    }
+
     return 0;
 }
 /*

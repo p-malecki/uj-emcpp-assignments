@@ -4,12 +4,14 @@
 #include <iterator>
 #include <numeric>
 #include <cctype>
+#include "toLowerAlpha.h"
 
 template <typename Container>
 void print(const Container & c){
     //1.  Print elements of the container separated by ", "
     //    using std::copy and std::ostream_iterator
     // <<>> (1 line)
+    std::copy(std::begin(c), std::end(c), std::ostream_iterator<typename Container::value_type>(std::cout, ", "));
     std::cout << std::endl;
 }
 
@@ -17,10 +19,9 @@ void print(const Container & c){
  * Removes all non alphanumeric characters from given word and converts to lower case.
  * @param[in,out] word on return word consist only of lower case characters.
  */
-void toLowerAlpha(std::string & s1) {
-    //2. Implement using stl algorithms only
-    //   Hint: use remove_if, transform, erase
-}
+//void toLowerAlpha(std::string & s1);
+// in "toLowerAlpha.h"
+
 /**
   Checks if the first word is an anagram of the second word.
 
@@ -37,8 +38,18 @@ bool isAnagram(std::string word1, std::string word2){
 //3. Implement isAnagram function using stl algorithms only
 //   Hint: use toLowerAlpha, sort, equal
 // <<>> (several lines)
-    return false;
+    toLowerAlpha(word1);
+    toLowerAlpha(word2);
+    auto are_the_same = std::equal(std::begin(word1), std::end(word1),
+                                   std::begin(word2), std::end(word2)
+    );
+    std::sort(std::begin(word1), std::end(word1));
+    std::sort(std::begin(word2), std::end(word2));
+    return !are_the_same && std::equal(std::begin(word1), std::end(word1),
+                      std::begin(word2), std::end(word2)
+                      );
 }
+
 void isAnagramTest(const std::string & s1, const std::string & s2, bool expected){
     std::cout << "isAnagram(\"" << s1 << "\", \""<< s2 << "\") = ";
     bool result = isAnagram(s1, s2);
@@ -47,25 +58,42 @@ void isAnagramTest(const std::string & s1, const std::string & s2, bool expected
 }
 int main(){
 
+    std::string s1 = "1AAAabbB@1 C";
+    std::cout << s1 << std::endl;
+    toLowerAlpha(s1);
+    std::cout << s1 << std::endl;
+
     constexpr int N = 10;
     std::vector<int> v(N);
 
     //4. Fill vector v with consecutive numbers starting with -5. (Hint: use std::iota)
     // <<>> (1 line)
+    std::iota(std::begin(v), std::end(v), -5);
     print(v);
 
     std::vector<int> odd;
     //5. Copy to odd all odd numbers from v (Hint: use copy_if and back_inserter)
     // <<>> (1 line)
+    std::copy_if(std::begin(v), std::end(v), std::back_inserter(odd),
+                 [](auto x){ return x % 2 != 0; }
+                 );
     print(odd);
 
     //6. Each number x in v replace with x*x-1 (Hint std::transform)
     // <<>> (1 line)
+    std::transform(std::begin(v), std::end(v), std::begin(v),
+                   [](auto x){ return x * x - 1; }
+                   );
     print(v);
 
     std::vector<int> intersect;
     //7. Sort v and compute intersection of vectors odd and v (treated as sets)
     // <<>> (2 lines)
+    std::sort(std::begin(v), std::end(v));
+    std::set_intersection(std::begin(v), std::end(v),
+                          std::begin(odd), std::end(odd),
+                          std::back_inserter(intersect)
+                          );
     print(intersect);
 
     isAnagramTest("male", "lame", true);
