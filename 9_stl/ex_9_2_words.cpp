@@ -1,6 +1,5 @@
 #include <iostream>
 #include <fstream>
-#include <filesystem>
 #include <map>
 #include <vector>
 #include "toLowerAlpha.h"
@@ -19,8 +18,7 @@ int main(){
     map<string, int> c;
     std::vector<int> v;
 
-    std::filesystem::path filePath = std::filesystem::current_path() / ".." / "hamletEN.txt";
-    std::ifstream in(filePath);
+    std::ifstream in("../hamletEN.txt");
     std::cin.rdbuf(in.rdbuf());
 
     while(cin >> word) {

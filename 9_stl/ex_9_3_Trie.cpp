@@ -1,6 +1,7 @@
 #include <iostream>
 #include <fstream>
 #include <vector>
+#include <map>
 using namespace std;
 /**
  * Trie structure
@@ -8,25 +9,58 @@ using namespace std;
  * HINT: use std::map to implement it!
  *       My implementation adds less than 25 lines of code. 
  */
+
 class Trie{
   /// TODO:
+  map<string, unique_ptr<Trie>> node;
+  bool end_of_sentence;
 public:
-    static void printSentence(const std::vector<std::string>  & sentence ){
+    static void printSentence(const std::vector<std::string> & sentence){
         for(const auto & w : sentence)
             cout << w << " ";
     }
-    void add(const std::vector<std::string>  & sentece ){
+
+    void add(const std::vector<std::string> & sentece){
        cout << "Adding : ";
        printSentence(sentece);
        cout << "\n";
+
        /// TODO:
+       decltype(auto) currentNode = &node;
+       for (decltype(auto) word : sentece) {
+           if (currentNode->count(word) == 0) {
+               currentNode->emplace(word, std::make_unique<Trie>());
+           }
+           currentNode = &((*currentNode)[word]->node);
+       }
+        currentNode->emplace("", new Trie);
+        (*currentNode)[""]->end_of_sentence = true;
     }
-    void printPossibleEndings(const std::vector<std::string>  & beginningOfSentece ){
+
+    void dfs(Trie& n, const string& sentence) {
+        for (auto& trie : n.node) {
+            if (!trie.second->end_of_sentence) {
+                dfs(*(trie.second), sentence + " " + trie.first);
+            }
+            else {
+                std::cout << sentence + trie.first << std::endl;
+            }
+        }
+    }
+
+    void printPossibleEndings(const std::vector<std::string> & beginningOfSentece){
         cout << "Endings for \"";
         printSentence(beginningOfSentece);
         cout << "\" are :\n";
         // TODO:
+        auto currentNode = this;
+        for (decltype(auto) word : beginningOfSentece) {
+            currentNode = currentNode->node[word].get();
+        }
+        dfs(*currentNode, "");
+        cout << endl;
     }
+
     void load(const std::string & fileName){
         ifstream file(fileName);
         if(!file){
