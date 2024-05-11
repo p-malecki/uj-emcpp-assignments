@@ -41,7 +41,7 @@ int main(){
     }
     const auto mconst = m;
     cout << " mconst = ";
-    for(auto x : m){
+    for(auto x : mconst){
         cout << x << " ";
     }
     cout << endl;
