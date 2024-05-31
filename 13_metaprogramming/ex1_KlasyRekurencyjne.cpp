@@ -1,4 +1,6 @@
 #include <iostream>
+#include "ex1_compilation_time_functions.h"
+
 
 int main() {
 

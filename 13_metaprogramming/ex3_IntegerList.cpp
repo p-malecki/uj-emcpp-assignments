@@ -1,17 +1,14 @@
-
 #include <type_traits>
-
 #include <iostream>
 #include <iomanip>
+#include "ex3_IntegerList.h"
 
-template <int...>
-class IntegerList {};
 
 using namespace std;
 int main() {
 
-  using listA = 	IntegerList<5, -1, 5, 2, 1>;
-  using listB =   IntegerList<1, 4, 6, 9>;
+  using listA = IntegerList<5, -1, 5, 2, 1>;
+  using listB = IntegerList<1, 4, 6, 9>;
   cout << "List A : " << listA() << endl;
   cout << "List B : " << listB() << endl;
 
@@ -26,11 +23,9 @@ int main() {
   cout << "Is B sorted? " << IsSorted<listB>::value << endl;
 
   using listC = Join<listA, listB>::type;
-
   cout << "List C : " << listC() << endl;
   cout << Max<listC>::value << endl;
   cout << listC::max() << endl;
   static_assert(listC::max() == 9 );
   static_assert(listA::max() == 5 );
-
 }
